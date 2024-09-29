@@ -1,7 +1,6 @@
 const dayjs = require('dayjs');
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
-const dayjs = require('dayjs');
 
 // Schema to create Student model
 const thoughtSchema = new Schema(
