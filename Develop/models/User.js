@@ -18,13 +18,13 @@ const userSchema = new Schema(
     thoughts: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Thought',
+            ref: 'thought',
         },
     ],
     friends: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'User', // Self-reference for friends
+          ref: 'user', // Self-reference for friends
         },
       ],
   },
@@ -36,9 +36,10 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.virtual('friendCount').get(() => {
-    return this.friends.length;
-});
+// userSchema.virtual('friendCount').get(() => {
+//     let numberOfFriends = this.friends.length;
+//     return numberOfFriends;
+// });
 
 const User = model('user', userSchema);
 

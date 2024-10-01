@@ -34,9 +34,10 @@ thoughtSchema.virtual('formattedCreatedAt').get(() => {
     return dayjs(this.createAt).format('YYYY-MM-DD HH:mm:ss');
 });
 
-thoughtSchema.virtual('reacitonCount').get(() => {
-    return this.reactions.length
-});
+// thoughtSchema.virtual('reacitonCount').get(() => {
+//     const numberOfReactions = this.reactions.length;
+//     return numberOfReactions;
+// });
 
 const Thought = model('thought', thoughtSchema);
 
