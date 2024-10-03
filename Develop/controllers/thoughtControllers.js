@@ -28,8 +28,13 @@ module.exports = {
     async createThought(req, res) {
         try {
             const thought = await Thought.create(req.body);
+
+            await User.findByIdAndUpdate(req.body.userId, {
+                $push: { thoughts: thought._id },
+            });
             res.json(thought);
         } catch (err) {
+            console.error(err)
             res.status(500).json(err)
         }
     },

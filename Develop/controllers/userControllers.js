@@ -74,13 +74,16 @@ module.exports = {
     
     async addFriend (req, res) {
         try {
-            const { userId, friendId } = req.params;
+            const { userId } = req.params;
             const user = await User.findById(userId);
+            const { friendId } = req.body
             const friend = await User.findById(friendId);
 
-            if(!user || !friend) {
-                return res.status(404).json({ message: 'User or friend not found' });
+            if(!user) {
+                return res.status(404).json({ message: 'User not found' });
 
+            } else if (!friend) {
+                return res.status(404).json({ message: 'Friend not found' });
             }
 
             user.friends.push(friendId)
