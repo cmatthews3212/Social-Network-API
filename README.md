@@ -12,7 +12,13 @@
 - [Video Demo](#video-demo)
 
 ## Description
-This application is an api designed to create users, post and react to thoughts, and add friends. It is designed to show off my skills of using a noSql database called Mongoose.
+This application is an api designed to create users, post and react to thoughts, and add friends. It is designed to show off my skills of using a noSql database called Mongoose. The following routes are working as expected: 
+Get users and thoughts,
+Create users and thoughts,
+Update users and thoughts,
+Delete Users and thoughts,
+Add friends and reactions,
+Delete friends and reactions.
 
 ## Installation
 To install this application, run npm i in your terminal, then run node index.js.
