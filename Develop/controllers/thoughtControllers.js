@@ -73,7 +73,7 @@ module.exports = {
 
         if(!user) {
             return res.status(404).json({
-                message: 'Thought deleted, but no users found'
+                message: 'Thought deleted'
             });
         }
 

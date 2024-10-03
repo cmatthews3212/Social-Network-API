@@ -99,19 +99,28 @@ module.exports = {
 
     async deleteFriend(req, res) {
         try {
-            const { userId, friendId } = req.params;
-
+            const { userId } = req.params;
             const user = await User.findById(userId);
+            const { friendId } = req.params;
+            const friend = await User.findById(friendId);
 
-            if (!user) {
-                return res.status(404).json({ message: 'user not found'});
+            if(!user) {
+                return res.status(404).json({ message: 'User not found' });
+
+            } else if (!friend) {
+                return res.status(404).json({ message: 'Friend not found' });
             }
+
+
+
 
             user.friends.pull(friendId);
             await user.save();
+            console.log(user, friend)
 
             res.json(friendId)
         } catch (err) {
+            console.error(err)
             res.status(500).json(err)
         }
     }
